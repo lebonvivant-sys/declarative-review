@@ -1,11 +1,110 @@
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  name: exoplanets-app
+  creationTimestamp: null
+  labels:
+    app: exoplanets-app
+  name: exoplanets-route
 spec:
-  host: exoplanets.apps.cluster01.klaverviertjes.nl  
+  host: exoplanets.apps.cluster01.klaverviertjes.nl
   port:
-    targetPort: 8080 
+    targetPort: 8080
+  tls:
+    certificate: |
+      -----BEGIN CERTIFICATE-----
+      MIIGmzCCBIOgAwIBAgIUZ468yjZ9T12eDYTFTmV3oENBnMkwDQYJKoZIhvcNAQEL
+      BQAwgaYxCzAJBgNVBAYTAk5MMRUwEwYDVQQIDAxadWlkLUhvbGxhbmQxETAPBgNV
+      BAcMCERlbiBIYWFnMRcwFQYDVQQKDA5LbGF2ZXJ2aWVydGplczELMAkGA1UECwwC
+      SVQxIjAgBgNVBAMMGWx0MzAwMTIua2xhdmVydmllcnRqZXMubmwxIzAhBgkqhkiG
+      9w0BCQEWFGpvcy5rbGF2ZXJAZ21haWwuY29tMB4XDTI2MDIxMTEzMjkxNloXDTI4
+      MDIxMTEzMjkxNlowYjEQMA4GA1UEAwwHJE1ZQ0VSVDELMAkGA1UEBhMCTkwxETAP
+      BgNVBAgMCERlbiBIYWFnMRUwEwYDVQQHDAxadWlkLUhvbGxhbmQxFzAVBgNVBAoM
+      DmtsYXZlcnZpZXJ0amVzMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA
+      vaXq1Vy70B6Adt0q//ovfidxxwJVKu5UzeYSgkJ8R6SFbBR/O+z446i3S4b/KTJk
+      dsc4QyDwSXko/qg17y9pC9ubsbha8qzuoPlZDQQkMRK//RQfSDSCA7BrV9cI3hP7
+      dQhq+jG0DP7rKBURMG5A7a0+EcsFBmT4/otfmOtDuvAaIKP4BCRWntc4Bq+fs49W
+      sTXi/aUN6DwV0fZKDki2OLc0EM6LNYgR6BM3QplCB5OC1PTiCJEWLfAUQAkeoq1Y
+      OGY5JCf7KBayu9+/5Fvae6+Je0+0nGtuZEzDsq9s9PG8rthf1nGXJhCaJjOOv4d/
+      Fw7F1AhvSvL0eqYACYYFFL2zitR7dYRnzTha3+EumF5Nk8roIsrai3itbMrZRI4H
+      om9GLuNItxjAH6FbQMh+MZRE+nlUsSSAdnPxZ3CDC4L8dhipJCe7kTk6wFoQ3MBq
+      D8YoCQniySMGQOgJuNtH09AsGetHa0HUGz5BVyt0hQwMreIOC+vRY8+RpfxXXKl8
+      9WH8f3InXkdnQF5UGHMMgJtbgKQG5C+u/vHw0qBimM1JysTfB28XQInTkKq6FMtx
+      TIFjOOB2+9yf96VH4O5+EQkB/fhnCGehk1ORxjIuu9f/Knk8qhDt3DrtRXeKkk6P
+      cZ51RweB7AZMXwQaSZxUWLxFdX5SWiMBftFq5Q17RpUCAwEAAaOCAQIwgf8wHwYD
+      VR0jBBgwFoAUl7uC75IlL8Mqq8Tros7y9/4DdjowCQYDVR0TBAIwADALBgNVHQ8E
+      BAMCBPAwgaQGA1UdEQSBnDCBmYIrZXhvcGxhbmV0cy5hcHBzLmNsdXN0ZXIwMS5r
+      bGF2ZXJ2aWVydGplcy5ubIIuZXhvcGxhbmV0cy12Mi5hcHBzLmNsdXN0ZXIwMS5r
+      bGF2ZXJ2aWVydGplcy5ubIIuZXhvcGxhbmV0cy12My5hcHBzLmNsdXN0ZXIwMS5r
+      bGF2ZXJ2aWVydGplcy5ubIcEwKgBK4cEwKgBKjAdBgNVHQ4EFgQUUa+/X8SrNsU0
+      HUphTxvBysL5UJMwDQYJKoZIhvcNAQELBQADggIBAAv9+karkYERwhf3mxZwhZfa
+      sijD+laEOhMB0lUyS39cFmftjeSKejQq9E+1oagEGhhrPgV+DDHwdVMEgGKLOthX
+      xVsW/Q2OnDfGZlTli/JeFYTLaJBH6DYecZkidELemTeOqOBwQHsMi1CziT5m//GA
+      Iob1tIDCEYiYGYCygtj8qyPwVkddj7zyQMNP9uQ8ijkk93hIk+1eujeLFb7Z9sJc
+      I/kaLe8JvxohFet4h59KKEHrMKbjkgvNAXhUuEoTySHcEU0EY7BW8JDxYtA13HX2
+      YZ7WR3Pd3CnVrUgATaPaerg2G8ow/7QO1kgybtB5snQ/04i/+MUHW2h3LSgPnSUk
+      0qmLGsccIHf9Vl+cNaiWXnWfCyRWYVnec2Nf3sZLxADjd9L6HyI0wSM4QTHtpmGA
+      EIGfSmUQ/S59yK2whE8ChyA6fk+ifaHnVa4cAWRD69oNud3uI8g2VdJFVBnc4S/S
+      g+JagwehGKTEHOmDarMr/5Fm+FFe8FedPCg05/4Y0sqjQPjTXPEX8W6ec24gx3RK
+      50KvDFjzqePVJiOLpriv4C7/QtO41SAndrSkqMLqY4A+Zv65Pr5MDqS6bKQHVzNl
+      QsjAlT8RRgfTSEVwMgQbIZ7jJdsy9IVnEhCjZRdkyCxzMueMv6FvMd/ozmeBiKyg
+      +aLBmYDvJ8fLn5KWAc9O
+      -----END CERTIFICATE-----
+    key: |
+      -----BEGIN PRIVATE KEY-----
+      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
+      5MpWbzW5FH0g0GcIxIO8abCVdRpeKD4=
+      -----END PRIVATE KEY-----
+    termination: edge
   to:
-    kind: Service
+    kind: ""
     name: exoplanets-app
+    weight: null
+status: {}
