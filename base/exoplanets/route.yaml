@@ -6,7 +6,7 @@ metadata:
     app: exoplanets-app
   name: exoplanets-route
 spec:
-  host: exoplanets.apps.cluster01.klaverviertjes.nl
+  host: exoplanets-v2.apps.cluster01.klaverviertjes.nl
   port:
     targetPort: 8080
   tls:
