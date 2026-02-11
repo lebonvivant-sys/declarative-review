@@ -1,0 +1,11 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: exoplanets-app
+spec:
+  host: exoplanets.apps.cluster01.klaverviertjes.nl  
+  port:
+    targetPort: 8080 
+  to:
+    kind: Service
+    name: exoplanets-app

@@ -1,0 +1,17 @@
+kind: Kustomization
+resources:
+- database
+- exoplanets
+secretGenerator:
+- name: db-secrets
+  literals:
+  - DB_ADMIN_PASSWORD=postgres
+  - DB_NAME=postgres
+  - DB_PASSWORD=password
+  - DB_USER=user
+configMapGenerator:
+- name: db-config
+  literals:
+  - DB_HOST=postgres-app
+  - DB_PORT="5432"
+

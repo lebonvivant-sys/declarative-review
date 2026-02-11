@@ -1,0 +1,17 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:  
+- deployment.yaml
+- service.yaml
+  #- service-account-postgres.yaml
+  #- rolebinding-to-service-account-postgres.yaml
+  #- deployment-exoplanets.yaml
+  #- service-exoplanets.yaml
+  #- service-postgres.yaml
+  #- route-exoplanets.yaml
+  #─ service-account-postgres.yaml
+  #─ deployment-postgres.yaml
+  #─ rolebinding-to-service-account-postgres.yaml
+  #─ route-exoplanets.yaml
+  #─ service-exoplanets.yaml
+  #─ service-postgres.yaml

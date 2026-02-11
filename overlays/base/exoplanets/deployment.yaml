@@ -1,0 +1,51 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: exoplanets-app
+  name: exoplanets-app
+spec:
+  selector:
+    matchLabels:
+      app: exoplanets-app
+  template:
+    metadata:
+      labels:
+        app: exoplanets-app
+      name: exoplanets-app
+    spec:
+      serviceAccountName: useroot
+      containers:
+        - name: exoplanets-app
+          env:
+          - name: DB_USER
+            valueFrom:
+              secretKeyRef:
+                name: db-secrets
+                key: DB_USER
+          - name: DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: db-secrets
+                key: DB_PASSWORD
+          - name: DB_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: db-config
+                key: DB_HOST
+          - name: DB_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: db-config
+                key: DB_PORT
+          - name: DB_NAME
+            valueFrom:
+              secretKeyRef:
+                name: db-secrets
+                key: DB_NAME
+          image: quay.io/klaj2210/exoplanets:v2
+          ports:
+          - containerPort: 8080
+            name: exoplanets-app
+

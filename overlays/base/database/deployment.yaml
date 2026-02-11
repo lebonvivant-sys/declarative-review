@@ -1,0 +1,42 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: postgres-app
+  name: postgres-app
+spec:
+  selector:
+    matchLabels:
+      app: postgres-app
+  template:
+    metadata:
+      labels:
+        app: postgres-app
+      name: postgres-app
+    spec:
+      hostname: database
+      serviceAccountName: useroot
+      containers:
+        - env:
+          - name: POSTGRES_USER
+            valueFrom:
+              secretKeyRef:
+                name: db-secrets
+                key: DB_USER
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: db-secrets
+                key: DB_PASSWORD
+          - name: HOSTNAME
+            valueFrom:
+              configMapKeyRef:
+                name: db-config
+                key: DB_HOST
+          name: postgres-app
+          image: quay.io/klaj2210/postgres:v1
+          ports:
+          - containerPort: 5432
+            name: postgres-app
+

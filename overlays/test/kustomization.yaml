@@ -1,0 +1,42 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: test-env
+resources:
+- ../../base
+patches:
+- patch: |-
+    - op: replace
+      path: /metadata/name
+      value: test-env-postgres-app
+  target: 
+    kind: Deployment
+    name: postgres-app
+- patch: |-
+    - op: replace
+      path: /spec/template/metadata/labels/app
+      value: test-env-postgres-app
+  target: 
+    kind: Deployment
+    name: postgres-app
+- patch: |-
+    - op: replace
+      path: /spec/selector/matchLabels/app
+      value: test-env-postgres-app
+  target: 
+    kind: Deployment
+    name: postgres-app
+- patch: |-
+    - op: replace
+      path: /metadata/labels/app
+      value: test-env-postgres-app
+  target: 
+    kind: Service
+    name: postgres-app
+- patch: |-
+    - op: replace
+      path: /spec/selector/app
+      value: test-env-postgres-app
+  target: 
+    kind: Service
+    name: postgres-app
+
